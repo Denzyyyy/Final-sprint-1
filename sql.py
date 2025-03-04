@@ -11,18 +11,14 @@ dbName = mycreds.dbName
 def create_conn():
     connection = None
     try:
-        mysql.connector.connect(
+        db = mysql.connector.connect(
             host = conString,
             user = username,
             passwd = password,
             database = dbName
         )
         print("Connection successful")
-        return connection
+        return db
     except Error as e:
         print(f'An error {e} occured', e)
-        return None
-
-create_conn()
-    
-        
+        return None  
