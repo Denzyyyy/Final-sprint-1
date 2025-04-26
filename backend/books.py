@@ -1,4 +1,4 @@
-from creds import Creds 
+from creds import Creds
 from sql import create_conn
 import flask
 from flask import jsonify, request
@@ -34,8 +34,7 @@ def create_new():
             return jsonify({"error": "Title, author, and genre are required"}), 400
 
         cursor = db.cursor()
-        cursor.execute("INSERT INTO books (title, author, genre, status) VALUES (%s, %s, %s, %s)", 
-                       (title, author, genre, status))
+        cursor.execute("INSERT INTO books (title, author, genre, status) VALUES (%s, %s, %s, %s)", (title, author, genre, status))
         db.commit()
         cursor.close()
         return jsonify({"message": "Book created successfully"}), 201
