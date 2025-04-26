@@ -1,0 +1,15 @@
+<%- include('layout') %>
+<h1>Book List</h1>
+<a href="/create">Add New Book</a>
+<ul>
+    <% books.forEach(book => { %>
+    <li>
+        <strong><%= book.title %></strong> by <%= book.author %> - <%= book.genre %> - <%= book.status %>
+        <form action="/delete/<%= book.id %>" method="POST" style="display:inline;">
+        <a href="/edit/<%= book.id %>">Edit</a>
+        <button type="submit">Delete</button>
+        </form>
+    </li>
+    <% }) %>
+</ul>
+

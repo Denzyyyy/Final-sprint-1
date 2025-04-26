@@ -1,0 +1,12 @@
+<%- include('layout') %>
+<h2>Edit Book</h2>
+<form action="/edit/<%= book.id %>" method="POST">
+    <input name="title" value="<%= book.title %>" required>
+    <input name="author" value="<%= book.author %>" required>
+    <input name="genre" value="<%= book.genre %>" required>
+    <select name="status">
+    <option value="available" <%= book.status === "available" ? "selected" : "" %>>Available</option>
+    <option value="unavailable" <%= book.status === "unavailable" ? "selected" : "" %>>Unavailable</option>
+    </select>
+    <button type="submit">Update Book</button>
+</form>
